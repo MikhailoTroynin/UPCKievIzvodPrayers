@@ -749,6 +749,11 @@ button { font-family: inherit; cursor: pointer; }
 [data-theme="night"] .reader {
   background: var(--bg);
 }
+[data-theme="night"] .listing {
+  background: rgba(20, 24, 42, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 
 /* Дерево в пустелі — фонове зображення лише в денному режимі,
    видиме на полях навколо центральної колонки читача */
@@ -768,6 +773,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 [data-theme="day"] .reader {
   background: var(--bg);
+}
+[data-theme="day"] .listing {
+  background: rgba(244, 237, 224, 0.93);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
