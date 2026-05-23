@@ -720,7 +720,14 @@ button { font-family: inherit; cursor: pointer; }
 
 /* фонове декоративне золото для нічного режиму */
 [data-theme="night"] body { background: var(--bg); }
-[data-theme="night"] .hero-bg { filter: saturate(0.7) brightness(0.55) contrast(1.05); }
+[data-theme="night"] .hero-bg {
+  background-image:
+    linear-gradient(rgba(10, 14, 28, 0.45), rgba(10, 14, 28, 0.45)),
+    url('assets/tree%20in%20the%20desert.png');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.75) brightness(0.85) contrast(1.05);
+}
 
 /* Вифлеємський сад — фонове зображення лише в нічному режимі,
    видиме на полях навколо центральної колонки читача */
