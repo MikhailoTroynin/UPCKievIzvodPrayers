@@ -750,6 +750,26 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--bg);
 }
 
+/* Дерево в пустелі — фонове зображення лише в денному режимі,
+   видиме на полях навколо центральної колонки читача */
+[data-theme="day"] body {
+  background-image:
+    linear-gradient(rgba(244, 237, 224, 0.82), rgba(244, 237, 224, 0.82)),
+    url('assets/tree%20in%20the%20desert.png');
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+@media (hover: hover) {
+  [data-theme="day"] body {
+    background-attachment: fixed;
+  }
+}
+[data-theme="day"] .reader {
+  background: var(--bg);
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    BOOKMARK BUTTON (у верхній панелі читача)
    ═══════════════════════════════════════════════════════════════════ */
