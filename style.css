@@ -722,6 +722,27 @@ button { font-family: inherit; cursor: pointer; }
 [data-theme="night"] body { background: var(--bg); }
 [data-theme="night"] .hero-bg { filter: saturate(0.7) brightness(0.55) contrast(1.05); }
 
+/* Вифлеємський сад — фонове зображення лише в нічному режимі,
+   видиме на полях навколо центральної колонки читача */
+[data-theme="night"] body {
+  background-image:
+    linear-gradient(rgba(12, 15, 35, 0.78), rgba(12, 15, 35, 0.78)),
+    url('assets/Bethlehem%20garden.png');
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+/* fixed — для десктопів; scroll — вже задано вище як безпечний fallback */
+@media (hover: hover) {
+  [data-theme="night"] body {
+    background-attachment: fixed;
+  }
+}
+[data-theme="night"] .reader {
+  background: var(--bg);
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    BOOKMARK BUTTON (у верхній панелі читача)
    ═══════════════════════════════════════════════════════════════════ */
