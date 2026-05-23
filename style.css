@@ -723,7 +723,7 @@ button { font-family: inherit; cursor: pointer; }
 [data-theme="night"] .hero-bg {
   background-image:
     linear-gradient(rgba(10, 14, 28, 0.45), rgba(10, 14, 28, 0.45)),
-    url('assets/tree%20in%20the%20desert.png');
+    url('assets/lavra-hero.jpeg');
   background-size: cover;
   background-position: center;
   filter: saturate(0.75) brightness(0.85) contrast(1.05);
