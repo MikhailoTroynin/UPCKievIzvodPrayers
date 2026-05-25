@@ -1188,3 +1188,41 @@ button { font-family: inherit; cursor: pointer; }
   .topbar-search-wrap { width: 200px; }
   .hero-search-container { max-width: 100%; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE — показ фонових зображень якомога щільніше до тексту
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  /* Залишаємо вузькі поля з обох боків, де видно фонове фото,
+     але текстова колонка не накривається зображенням */
+  .listing,
+  .reader {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .favorites-inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Послаблюємо напівпрозору вуаль, щоб фотозображення було помітне */
+  [data-theme="day"] body {
+    background-image:
+      linear-gradient(rgba(244, 237, 224, 0.55), rgba(244, 237, 224, 0.55)),
+      url('assets/tree%20in%20the%20desert.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+  [data-theme="night"] body {
+    background-image:
+      linear-gradient(rgba(12, 15, 35, 0.55), rgba(12, 15, 35, 0.55)),
+      url('assets/Bethlehem%20garden.png');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll;
+  }
+}
