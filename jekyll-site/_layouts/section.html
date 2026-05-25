@@ -36,7 +36,7 @@ layout: default
                 <span class="prayer-row-num">{{ p.order | prepend: '0' | slice: -2, 2 }}</span>
                 <span class="prayer-row-body">
                   <span class="prayer-row-title">{{ p.title }}</span>
-                  <span class="prayer-row-sub">{{ p.subtitle }}</span>
+                  {% if section_key == "molytvoslov" %}<span class="prayer-row-sub">{{ p.subtitle }}</span>{% endif %}
                 </span>
                 <span class="prayer-row-arrow">→</span>
               </a>
@@ -47,10 +47,4 @@ layout: default
     {% endfor %}
   </div>
 
-  <div class="upload-hint">
-    ✦ <div><strong>Додавання нових молитов.</strong> Створіть Markdown‑файл у теці
-      <code>_{{ section_key }}/назва-молитви.md</code> з front-matter
-      (<code>title</code>, <code>subtitle</code>, <code>category</code>, <code>order</code>) —
-      і вона з'явиться тут після перебудови сайту.</div>
-  </div>
 </section>

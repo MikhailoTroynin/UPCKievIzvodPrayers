@@ -260,11 +260,9 @@ function Hero({ onNav, bookmarks, onRemoveBookmark, onOpenBookmark, onSearchNavi
           <nav className="hero-nav">
             <button className="hero-card" onClick={() => onNav("molytvoslov")}>
               <div className="hero-card-title">Молитви</div>
-              <div className="hero-card-count">44 молитви</div>
             </button>
             <button className="hero-card" onClick={() => onNav("akafisty")}>
               <div className="hero-card-title">Акафісти</div>
-              <div className="hero-card-count">42 акафісти</div>
             </button>
           </nav>
         </div>
@@ -346,7 +344,7 @@ function SectionList({ sectionKey, onBack, onOpen }) {
               <Cross size={14}/>
               <span className="prayer-flat-body">
                 <span className="prayer-flat-title">{p.title}</span>
-                <span className="prayer-flat-sub">{p.subtitle}</span>
+                {sectionKey !== "akafisty" && p.subtitle && <span className="prayer-flat-sub">{p.subtitle}</span>}
               </span>
               <span className="prayer-flat-arrow">→</span>
             </button>
@@ -354,13 +352,6 @@ function SectionList({ sectionKey, onBack, onOpen }) {
         ))}
       </ul>
 
-      <div className="upload-hint">
-        <Cross size={14}/>
-        <div>
-          <strong>Додавання нових молитов.</strong> Створіть Markdown‑файл у теці&nbsp;
-          <code>_{sectionKey}/назва-молитви.md</code> з front‑matter — і вона з'явиться тут після перебудови сайту Jekyll.
-        </div>
-      </div>
     </section>
   );
 }
@@ -525,10 +516,6 @@ function Reader({ sectionKey, sectionId, prayerId, onBack, settings, setSettings
         className="prayer-article"
         style={{ fontSize: settings.size + "px", fontFamily }}
       >
-        <div className="prayer-meta">
-          <Cross size={14}/>
-          <span>{section.title} · №{String(prayer.order).padStart(2, "0")}</span>
-        </div>
         <div className="prayer-body">
           {renderMarkdown(prayer.body)}
         </div>
@@ -681,7 +668,6 @@ function App() {
               </div>
               <div className="seg">
                 <button onClick={() => setSettings({ ...settings, size: Math.max(14, settings.size - 2) })} title="Зменшити шрифт">А−</button>
-                <span className="seg-val">{settings.size}</span>
                 <button onClick={() => setSettings({ ...settings, size: Math.min(36, settings.size + 2) })} title="Збільшити шрифт">А+</button>
               </div>
               <button
@@ -720,7 +706,6 @@ function App() {
       <footer className="footer">
         <div className="footer-row">
           <span>© 2026 · Молитовник</span>
-          <span>Збудовано на Jekyll · GitHub Pages</span>
         </div>
       </footer>
     </div>
