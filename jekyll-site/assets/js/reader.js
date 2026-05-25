@@ -26,8 +26,6 @@
   var size = parseInt(localStorage.getItem(LS.size) || "22", 10);
   function applySize(){
     root.style.setProperty("--reader-size", size + "px");
-    var v = document.getElementById("font-val");
-    if (v) v.textContent = size;
     localStorage.setItem(LS.size, size);
   }
   applySize();
